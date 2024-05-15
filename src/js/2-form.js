@@ -15,12 +15,15 @@ loginForm.addEventListener('submit', event => {
 
   if (!formData.email || !formData.message) {
     alert('Fill please all fields');
+    return;
   } else {
     console.log(formData);
-    localStorage.removeItem('feedback-form-state');
-
-    loginForm.reset();
+    formData.email = '';
+    formData.message = '';
   }
+  localStorage.removeItem('feedback-form-state');
+
+  loginForm.reset();
 });
 
 const savedData = localStorage.getItem('feedback-form-state');
